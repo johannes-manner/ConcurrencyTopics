@@ -1,13 +1,34 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'java'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // update May 2021
+    def jerseyVersion = '3.0.1'
+
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.core', name: 'jersey-client', version: jerseyVersion
+
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-servlet', version: jerseyVersion
+    compile group: 'org.glassfish.jersey.containers', name: 'jersey-container-jdk-http', version: jerseyVersion
+
+    compile group: 'org.glassfish.jersey.media', name: 'jersey-media-moxy', version: jerseyVersion
+
+    // needed since version 2.26 and newer are not backward compatible
+    // https://stackoverflow.com/questions/44088493/jersey-stopped-working-with-injectionmanagerfactory-not-found
+    compile group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: jerseyVersion
+
+    compile group: 'org.glassfish.jaxb', name: 'jaxb-runtime', version: jerseyVersion
+//    testCompile 'org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-inmemory:2.30.1'
+
     // thread safety annotations
     compile 'net.jcip:jcip-annotations:1.0'
 }
