@@ -55,7 +55,7 @@ final class ImmutableStudent {          //1
     }
 
     // no setters                                   //3
-    // “normal” getters for id and name (final)
+    // 'normal' getters for id and name (final)
     public Age getAge() {
         return new Age(age.getDay(),                //5.2
                 age.getMonth(), age.getYear());     //5.2
