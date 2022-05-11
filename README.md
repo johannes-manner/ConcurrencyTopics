@@ -1,4 +1,4 @@
-# Source Code for Lecture Notes on Concurrency Topics (Version 1.0)
+# Source Code for Lecture Notes on Concurrency Topics (Version 1.2)
 
 This source code bundle includes examples and exercises 
 for our concurrency notes.
